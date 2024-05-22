@@ -12,6 +12,29 @@ import (
 	"github.com/alcb1310/gotth/internal/server"
 )
 
+func init() {
+	var level slog.Level
+	l := os.Getenv("APP_ENV")
+	switch l {
+	case "dev":
+		level = slog.LevelDebug
+	case "prod":
+		level = slog.LevelInfo
+	default:
+		level = slog.LevelError
+	}
+
+	h := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: level})
+	logger := slog.New(h)
+
+	slog.SetDefault(logger)
+
+	slog.Debug("Logger initialized")
+	slog.Info("Logger initialized")
+	slog.Warn("Logger initialized")
+	slog.Error("Logger initialized")
+}
+
 func main() {
 	db := database.Connect()
 	s := server.CreateServer(db)
