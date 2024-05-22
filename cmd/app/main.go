@@ -8,11 +8,13 @@ import (
 
 	_ "github.com/joho/godotenv/autoload"
 
+	"github.com/alcb1310/gotth/internal/database"
 	"github.com/alcb1310/gotth/internal/server"
 )
 
 func main() {
-	s := server.CreateServer()
+	db := database.Connect()
+	s := server.CreateServer(db)
 
 	port := os.Getenv("PORT")
 	if port == "" {

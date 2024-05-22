@@ -1,0 +1,17 @@
+package todos
+
+import (
+    "github.com/alcb1310/gotth/internal/types"
+)
+
+templ ListTodo(t []types.Todo) {
+    if len(t) == 0 {
+        <p class="text-green-200">No todos</p>
+    } else {
+        <ul>
+            for _, todo := range t {
+                <li class="text-green-200">{ todo.Title }</li>
+            }
+        </ul>
+    }
+}

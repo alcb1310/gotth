@@ -554,9 +554,18 @@ video {
   --tw-contain-style:  ;
 }
 
+.table {
+  display: table;
+}
+
 .bg-slate-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
+.text-green-200 {
+  --tw-text-opacity: 1;
+  color: rgb(187 247 208 / var(--tw-text-opacity));
 }
 
 .text-slate-100 {

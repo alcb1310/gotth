@@ -6,7 +6,7 @@ import (
 	"github.com/alcb1310/gotth/internal/views/home"
 )
 
-func handleHome(w http.ResponseWriter, r *http.Request) {
+func (s *service) handleHome(w http.ResponseWriter, r *http.Request) {
 	c := home.Index()
 
 	c.Render(r.Context(), w)
